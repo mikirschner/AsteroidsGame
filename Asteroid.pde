@@ -34,11 +34,11 @@ class Asteroid extends Floater {
 	}
 	public Asteroid() {
 		corners = 18;
-		xCorners = new int[corners];
-		yCorners = new int[corners];
+		xCorn = new int[corners];
+		yCorn = new int[corners];
 		for(int i = 0; i < 18; i ++) {
-			xCorners[i] = (int)(1.5*xCorn[i]);
-			yCorners[i] = (int)(1.5*yCorn[i]);
+			xCorn[i] = (int)(1.5*xCorn[i]);
+			yCorn[i] = (int)(1.5*yCorn[i]);
 		}
 	myColor = #ababab;
 	myCenterX = Math.random()*500 + 1;

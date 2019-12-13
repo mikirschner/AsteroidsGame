@@ -1,22 +1,25 @@
 Spaceship bernard;
 ArrayList <Asteroid> bertha;
+ArrayList <Bullet> bob;
 Star[] gertrude = new Star[(int)(Math.random()*100)+8];
 boolean forward, backwards, left, right = false;
 public void setup() 
 {
   bernard = new Spaceship();
   size(500,500);
+  background(0);
   for(int i = 0; i < gertrude.length; i++) {
   	gertrude[i] = new Star();
   }
-	bertha = new ArrayList<Asteroid>();
-	for(int i = 0; i <= 18; i++) {
+	bertha = new ArrayList <Asteroid>();
+	for(int i = 0; i <= 100; i++) {
 		bertha.add(i, new Asteroid());
 	}
+	bob = new ArrayList <Bullet>();
 }
 public void draw() 
 {
-  background(87, 120, 153);
+  background(0, 0, 0);
   bernard.show();
   bernard.move();
   for(int i = 0; i < gertrude.length; i++) {
