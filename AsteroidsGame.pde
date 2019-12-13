@@ -7,7 +7,6 @@ public void setup()
 {
   bernard = new Spaceship();
   size(500,500);
-  background(0);
   for(int i = 0; i < gertrude.length; i++) {
   	gertrude[i] = new Star();
   }
