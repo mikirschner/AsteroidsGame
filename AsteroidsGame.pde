@@ -18,7 +18,7 @@ public void setup()
 }
 public void draw() 
 {
-  background(0, 0, 0);
+  background(140, 143, 173);
   bernard.show();
   bernard.move();
   for(int i = 0; i < gertrude.length; i++) {
