@@ -10,6 +10,9 @@ public void setup()
   for(int i = 0; i < gertrude.length; i++) {
   	gertrude[i] = new Star();
   }
+  for (int j = 0; j < 10; j++) {
+  	bertha.add(i, new Asteroids());
+  }
 }
 public void draw() 
 {
