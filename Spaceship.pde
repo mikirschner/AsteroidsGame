@@ -40,11 +40,14 @@ class Spaceship extends Floater
 			xCorners[i]= xCorn[i];
 			yCorners[i]=yCorn[i];
 		}
-		myColor = (255, 217, 243);
+		myColor = 255;
 		myCenterX = 250;
 		myCenterY = 250;
 		myDirectionX = 0;
 		myDirectionY = 0;
 		myPointDirection = 0;
 	}
+public void shoot() {
+  bob.add(new Bullet(bernard));
+}
 }

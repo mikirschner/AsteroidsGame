@@ -3,6 +3,8 @@ ArrayList <Asteroid> bertha = new ArrayList <Asteroid>();
 ArrayList <Bullet> bob = new ArrayList <Bullet>();
 Star[] gertrude = new Star[(int)(Math.random()*100)+8];
 boolean forward, backwards, left, right = false;
+boolean shooter = false;
+int timeShoot = 0;
 public void setup() 
 {
   bernard = new Spaceship();
@@ -11,7 +13,7 @@ public void setup()
   	gertrude[i] = new Star();
   }
   for (int j = 0; j < 10; j++) {
-  	bertha.add(i, new Asteroids());
+  	bertha.add(j, new Asteroid());
   }
 }
 public void draw() 
@@ -19,6 +21,13 @@ public void draw()
   background(76, 74, 84);
   bernard.show();
   bernard.move();
+  for(int i = 0; i < bob.size(); i++) {
+    bob.get(i).show();
+    bob.get(i).move();
+  if(bob.get(i).getX() > width || bob.get(i).getX() < 0 || bob.get(i).getY() > 500 || bob.get(i).getY() < 0){
+    bob.remove(i);
+  }
+  }
   for(int i = 0; i < gertrude.length; i++) {
   	gertrude[i].show();
   }
@@ -38,6 +47,18 @@ public void draw()
   if (right == true) {
   	bernard.turn(-10);
   }
+  if (shooter == true) {
+    bernard.shoot();
+  }
+ for(int i = 0; i < bob.size(); i++) {
+    for(int j = 0; j < bertha.size(); j++) {
+      if(dist(bertha.get(j).getX(),bertha.get(j).getY(),bob.get(i).getX(),bob.get(i).getY()) <= 8) {
+        bob.remove(i);
+        bertha.remove(j);
+        break;
+      }
+    }
+ }
 }
 public void keyPressed() {
 	if (key == 'w') {
@@ -59,6 +80,9 @@ public void keyPressed() {
 		bernard.setDirectionY(0);
 		bernard.setPointDirection((int)Math.random()*361);
 	}
+  else if (key == 'm') {
+    shooter = true;
+  }
 }
 public void keyReleased() {
 	if (key == 'w') {
@@ -73,5 +97,7 @@ public void keyReleased() {
 	else if (key =='d') {
 		right = false;
 	}
+  else if (key == 'm') {
+    shooter = false;
+  }
 }
-

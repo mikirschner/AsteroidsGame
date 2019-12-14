@@ -1,5 +1,3 @@
-int[] xCornerBullet {-4,0,4,0};
-int[] yCornerBullet {0,2,0,-2};
 class Bullet extends Floater {
 	public void setX(int x) {
 		myCenterX = x;
@@ -11,7 +9,7 @@ class Bullet extends Floater {
 		myCenterY = y;
 	}
 	public int getY() {
-		return (int)myCenterY;;
+		return (int)myCenterY;
 	}
 	public void setDirectionX(double x) {
 		myDirectionX = x;
@@ -39,12 +37,16 @@ class Bullet extends Floater {
 		myDirectionY = 5*Math.sin(myPointDirection) + theShip.getDirectionY();
 		myColor = #f567be;
 		corners = 4;
-		xCorners[i] = xCornerBullet[i];
-		yCorners[i] = yCornerBullet[i];
-		for(int i = 0; i < 4; i++) {
-			xCorners[i] = xCornerBullet[i];
-			yCorners[i] = yCornerBullet[i];
-		}
+		xCorners = new int[corners];
+    yCorners = new int[corners];
+    xCorners[0] = 4;
+    yCorners[0] = 0;
+    xCorners[1] = 0;
+    yCorners[1] = 2;
+    xCorners[2] = 4;
+    yCorners[2] = 0;
+    xCorners[3] = 0;
+    yCorners[3] = -2;
 	}
 	public void move() {
 		myCenterX += myDirectionX;
