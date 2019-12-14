@@ -1,5 +1,3 @@
-double xCorn[] = {-7,-4,-2,0,2,4,6,7,6,7.5,8,8,0,-1,-2,-3,-6,-6};
-double yCorn[] = {3,4,3,5,4.5,2,1.5,0.5,0,-1,-2,-3,-5,-4,-5,-5,-4,-1};
 class Asteroid extends Floater {
 	private int rotSpeed;
 	public void setX(int x) {
@@ -33,13 +31,21 @@ class Asteroid extends Floater {
 		return myPointDirection;
 	}
 	public Asteroid() {
-		corners = 18;
+		corners = 6;
 		xCorn = new int[corners];
 		yCorn = new int[corners];
-		for(int i = 0; i < 18; i ++) {
-			xCorn[i] = (int)(1.5*xCorn[i]);
-			yCorn[i] = (int)(1.5*yCorn[i]);
-		}
+		xCorn[0] = -5;
+		yCorn[0] = -8;
+		xCorn[1]= 7;
+		yCorn[1] = -8;
+		xCorn[2] = 10;
+		yCorn[2] = 0;
+		xCorn[3] = 5;
+		yCorn[3] = 9;
+		xCorn[4] = -5;
+		yCorn[4] = 8;
+		xCorn[5] = -10;
+		yCorn[5] = 0;
 	myColor = #ababab;
 	myCenterX = Math.random()*500 + 1;
 	myCenterY = Math.random()*500 +1;
@@ -50,7 +56,6 @@ class Asteroid extends Floater {
 }
 	public void move() {
 		turn(rotSpeed);
-		myCenterX+= myDirectionX;
-		myCenterY+= myDirectionY;
+		super.move();
 	}
 }
